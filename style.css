@@ -1,0 +1,342 @@
+/* nav css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-transform: capitalize;
+}
+
+body {
+  overflow-x: hidden;
+}
+.navbar {
+  background-color: rgba(172, 221, 172);
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  padding: 1.5rem 0;
+}
+.logo-container,
+.toggle-icon-container,
+.cart-logo-container {
+  cursor: pointer;
+}
+.toggle-icon,
+.cart-icon,
+.logo {
+  font-size: 2rem;
+  color: #444;
+}
+
+.logo {
+  font-family: "Gemunu Libre", sans-serif;
+  display: inline-block;
+  letter-spacing: 1rem;
+}
+
+.cart-logo-container {
+  position: relative;
+}
+.cart-text {
+  position: absolute;
+  top: -16px;
+  right: -5px;
+  z-index: 1;
+  font-size: 1.5rem;
+  color: rgb(70, 67, 63);
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: bold;
+}
+.food {
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* css for header */
+header {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  background-image: url("./image/noodle.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* background-position: center center; */
+}
+.hero-text {
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10rem 3rem;
+  /* background-color: rgba(194, 187, 187, 0.5); */
+  margin-top: -10rem;
+}
+.hero-text h1 {
+  font-size: 3rem;
+  font-family: "Source Sans Pro", sans-serif;
+  color: rgb(70, 67, 63);
+}
+
+.btn-container {
+  margin-top: 2rem;
+}
+
+.btn-container button {
+  padding: 0.4rem 0.7rem;
+  font-family: "Gemunu Libre", sans-serif;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  outline: none;
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 1);
+  border-radius: 3px;
+}
+.btn-container button:hover {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.btn-container button:active {
+  border: 1px solid rgba(0, 0, 0, 1);
+}
+
+/* css for products */
+.products-container {
+  padding: 2rem 0;
+}
+.products {
+  margin: 0 auto;
+  max-width: 1200px;
+  text-align: center;
+}
+.product-heading h2 {
+  font-size: 5rem;
+  font-family: "Gemunu Libre", sans-serif;
+  font-weight: lighter;
+  letter-spacing: 1rem;
+}
+.products-item-container {
+  padding: 0 1rem;
+  margin-top: 2rem;
+  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.product-item {
+  margin-top: 3rem 0;
+  position: relative;
+}
+.product-item img {
+  width: 100%;
+  transition: 0.3s;
+}
+.product-item img:hover {
+  opacity: 0.7;
+}
+.p1:hover .p2 {
+  font-size: 2rem;
+}
+
+.button-container {
+  position: absolute;
+  top: 30px;
+  left: 0;
+}
+.button-container .add-in-cart {
+  padding: 0.3rem 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.7);
+  border-radius: 3px;
+  outline: none;
+  font-family: "Source Sans Pro", sans-serif;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: rgba(151, 151, 151, 0.3);
+  color: #000;
+}
+.button-container .add-in-cart:hover {
+  color: #666;
+}
+.button-container .add-in-cart:active {
+  color: #000;
+}
+
+.product-title {
+  font-size: 1.7rem;
+  font-family: "Gemunu Libre", sans-serif;
+  letter-spacing: -2px;
+}
+.product-price {
+  font-size: 1.4rem;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 500;
+}
+/* end products */
+
+/* css for cart */
+
+.list-cart-container {
+  background-color: #333;
+  position: fixed;
+  width: 50vw;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  transition: 0.7s;
+  transform: translateX(100%);
+}
+.cart-item-container {
+  position: relative;
+  height: 50vh;
+  overflow-y: auto;
+}
+.active {
+  transform: translateX(0);
+}
+.cart-heading-list {
+  text-align: center;
+  margin: 1rem 0;
+  font-size: 2rem;
+  font-family: "Gemunu Libre", sans-serif;
+}
+.text-info-list {
+  color: white;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.text-info-list .food-name,
+.text-info-list .food-price {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.sum {
+  font-family: "Source Sans Pro", sans-serif;
+}
+.remove-btn {
+  margin-top: 1rem;
+}
+.remove-btn button {
+  font-family: "Gemunu Libre", sans-serif;
+  letter-spacing: 3px;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.3rem 0.5rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: black;
+  color: honeydew;
+}
+
+.remove-btn button:active {
+  background-color: white;
+  color: black;
+}
+.clear-btn {
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.clear-btn .total {
+  font-size: 1.5rem;
+  color: white;
+  font-family: "Gemunu Libre", sans-serif;
+}
+
+.clear-btn button {
+  font-family: "Gemunu Libre", sans-serif;
+  letter-spacing: 3px;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.3rem 0.5rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+}
+
+.clear-btn {
+  width: 100%;
+  text-align: center;
+  margin-top: 5rem;
+}
+.clear-btn button:active {
+  background-color: black;
+  color: honeydew;
+}
+.cart-heading-list {
+  color: white;
+}
+.cart-item {
+  display: flex;
+  padding: 1rem 1rem;
+  align-items: center;
+  width: 80%;
+  justify-content: space-between;
+}
+
+.btn-add-item {
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.up-arrow {
+  cursor: pointer;
+}
+.down-arrow {
+  cursor: pointer;
+}
+.close-btn button {
+  font-size: 2rem;
+  background-color: transparent;
+  color: white;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.close-btn button:active {
+  color: rgb(156, 153, 153);
+}
+
+/* end css for cart */
+@media (min-width: 1200px) {
+  .list-cart-container {
+    width: 600px;
+  }
+}
+@media (max-width: 800px) {
+  .list-cart-container {
+    width: 50vw;
+  }
+}
+@media (max-width: 500px) {
+  .list-cart-container {
+    width: 100%;
+  }
+}
+.logo {
+  letter-spacing: 0.3rem;
+}
+.hero-text h1 {
+  font-size: 2rem;
+  font-family: "Source Sans Pro", sans-serif;
+}
+.hero-text {
+  width: 100%;
+}
+
+@media (max-width: 700px) {
+  header {
+    background-position: center center;
+  }
+}

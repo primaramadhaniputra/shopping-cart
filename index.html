@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@500&family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet" />
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+  <!-- my css -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- my js -->
+  <script src="script.js" defer></script>
+  <body>
+    <!-- navbar -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="toggle-icon-container">
+          <i class="fas fa-align-justify toggle-icon"> </i>
+        </div>
+        <div class="logo-container">
+          <p class="logo">noodles</p>
+          <i class="fas fa-cloud-meatball food"></i>
+        </div>
+        <div class="cart-logo-container">
+          <i class="fas fa-shopping-cart cart-icon"></i>
+          <span class="cart-text">0</span>
+        </div>
+      </div>
+    </nav>
+    <!-- end of navbar -->
+
+    <!-- hero image/banner/header -->
+    <header class="hero">
+      <div class="hero-text">
+        <h1>Noodles are the healthy food!</h1>
+        <div class="btn-container">
+          <button class="header-btn">Show more noodles!</button>
+        </div>
+      </div>
+    </header>
+    <!-- end of hero image/banner/header -->
+
+    <!-- html for producst -->
+    <div class="products-container">
+      <div class="products">
+        <div class="product-heading">
+          <h2>products</h2>
+          <hr />
+        </div>
+        <div class="products-item-container">
+          <!-- <div class="product-item">
+            <div class="image-item">
+              <img src="./image/noodle-1.jpg" alt="indomie" />
+            </div>
+            <div class="product-title">mie goreng</div>
+            <div class="product-price">rp 25.000</div>
+            <div class="button-container">
+              <button class="add-in-cart">add in cart</button>
+            </div>      
+        </div> -->
+      </div>
+    </div>
+    <!-- end of html producst -->
+    <!-- html for list of cart -->
+    <div class="list-cart-container">
+      <div class="list-container">
+        <div class="close-btn">
+          <button class="close-btn">
+            <i class="far fa-times-circle"></i>
+          </button>
+        </div>
+        <div class="cart-heading-list">
+          <h4>food list</h4>
+        </div>
+       <div class="cart-item-container">
+        <div class="cart-item">
+          <div class="image-list">
+            <img src="./image/noodle-1.jpg" width="150px" alt="">
+          </div>
+          <div class="text-info-list">
+            <p class="food-name">indomie</p>
+            <p class="food-price">rp 25.000</p>
+            <div class="remove-btn">
+              <button>remove</button>
+            </div>
+          </div>
+          <div div class="btn-add-item">
+            <i class="fas fa-angle-up up-arrow"></i>
+            <p class="sum">1</p>
+            <i class="fas fa-angle-down down-arrow"></i>
+          </div>
+        </div>
+       </div>
+      </div>
+      <div class="clear-btn">
+        <p class="total">total : <span class="total-price">rp 25.000</span></p>
+        <button>clear all</button>
+      </div>
+    </div>
+    <!-- end html for list of cart -->
+  </body>
+</html>
