@@ -30,6 +30,30 @@ class UiProducts {
     });
     productContainer.innerHTML = item;
   }
+  static cartProduct(product) {
+    cartContainer.classList.add("active");
+    let data = "";
+    product.forEach((p) => {
+      data += ` <div class="cart-item" data-product=${p.id}>
+      <div class="image-list">
+        <img src=${p.image} width="150px" alt="">
+      </div>
+      <div class="text-info-list">
+        <p class="food-name">${p.title}</p>
+        <p class="food-price">rp ${p.price}</p>
+        <div class="remove-btn">
+          <button>remove</button>
+        </div>
+      </div>
+      <div div class="btn-add-item">
+        <i class="fas fa-angle-up up-arrow"></i>
+        <p class="sum">1</p>
+        <i class="fas fa-angle-down down-arrow"></i>
+      </div>
+    </div>`;
+    });
+    cartItemProduct.innerHTML = data;
+  }
 }
 
 // class display producst
@@ -40,9 +64,15 @@ class DisplayProducts {
   }
   static setCartProduct(cartItem) {
     localStorage.setItem("cartProducts", JSON.stringify(cartItem));
+    UiProducts.cartProduct(cartItem);
+  }
+  static getProduct() {
+    return localStorage.getItem("cartProducts");
   }
 }
 
+// cart container
+const cartItemProduct = document.querySelector(".cart-item-container");
 // fisrt, get data product while content have been loaded
 
 const productContainer = document.querySelector(".products-item-container");
@@ -63,15 +93,51 @@ cartIcon.addEventListener("click", function () {
   cartContainer.classList.add("active");
 });
 
-// javascript for, add food to cart
+// check for init cart product
 let cartItem = [];
+if (DisplayProducts.getProduct()) {
+  cartItem = JSON.parse(DisplayProducts.getProduct());
+} else {
+  cartItem = [];
+}
+
+// javascript for, add food to cart
 window.addEventListener("click", function (e) {
   if (e.target.classList.contains("add-in-cart")) {
+    e.target.innerHTML = "in cart";
+    e.target.disabled = true;
     let productId = e.target.parentElement.parentElement.dataset.id;
     let products = DisplayProducts.getAllProductLocalStorage();
     let product = products.filter((item) => item.id == productId);
     cartItem = [...cartItem, ...product];
     //  set to local storage
     DisplayProducts.setCartProduct(cartItem);
+    // change cart view
+    UiProducts.cartProduct(cartItem);
+  }
+});
+
+// add event to window when page finish to load
+window.addEventListener("DOMContentLoaded", function () {
+  UiProducts.cartProduct(cartItem);
+});
+
+const clearBtn = document.querySelector(".clear-all");
+// add event to clear all
+clearBtn.addEventListener("click", function () {
+  let item = [];
+  localStorage.setItem("cartProducts", item);
+  UiProducts.cartProduct(item);
+});
+// javascript for remove each item in cart
+cartItemProduct.addEventListener("click", function (e) {
+  if (e.target.textContent == "remove") {
+    let cartId = e.target.parentElement.parentElement.parentElement.dataset.product;
+    let cartProducts = localStorage.getItem("cartProducts");
+    cartProducts = JSON.parse(cartProducts);
+    console.log(cartProducts);
+    let newCart = cartProducts.filter((cart) => cart.id != cartId);
+    localStorage.setItem("cartProducts", JSON.stringify(newCart));
+    UiProducts.cartProduct(newCart);
   }
 });
