@@ -2,37 +2,37 @@
   "products": [
     {
       "id": 1,
-      "price": "25.000",
+      "price": 25.0,
       "title": "noodle japan",
       "image": "./image/noodle-1.jpg"
     },
     {
       "id": 2,
-      "price": "50.000",
+      "price": 50.0,
       "title": "noodle korea",
       "image": "./image/noodle-2.jpg"
     },
     {
       "id": 3,
-      "price": "35.000",
+      "price": 35.0,
       "title": "noodle indonesia",
       "image": "./image/noodle-3.jpg"
     },
     {
       "id": 4,
-      "price": "45.000",
+      "price": 45.0,
       "title": "noodle amerika",
       "image": "./image/noodle-4.jpg"
     },
     {
       "id": 5,
-      "price": "75.000",
+      "price": 75.0,
       "title": "noodle netherlands",
       "image": "./image/noodle-5.jpg"
     },
     {
       "id": 6,
-      "price": "125.000",
+      "price": 125.0,
       "title": "noodle russia",
       "image": "./image/noodle-6.jpg"
     }
