@@ -4,37 +4,49 @@
       "id": 1,
       "price": 25.0,
       "title": "noodle japan",
-      "image": "./image/noodle-1.jpg"
+      "image": "./image/noodle-1.jpg",
+      "amount": 1,
+      "disabled": false
     },
     {
       "id": 2,
-      "price": 50.0,
+      "price": 25.0,
       "title": "noodle korea",
-      "image": "./image/noodle-2.jpg"
+      "image": "./image/noodle-2.jpg",
+      "amount": 1,
+      "disabled": false
     },
     {
       "id": 3,
-      "price": 35.0,
+      "price": 25.0,
       "title": "noodle indonesia",
-      "image": "./image/noodle-3.jpg"
+      "image": "./image/noodle-3.jpg",
+      "amount": 1,
+      "disabled": false
     },
     {
       "id": 4,
-      "price": 45.0,
+      "price": 25.0,
       "title": "noodle amerika",
-      "image": "./image/noodle-4.jpg"
+      "image": "./image/noodle-4.jpg",
+      "amount": 1,
+      "disabled": false
     },
     {
       "id": 5,
-      "price": 75.0,
+      "price": 25.0,
       "title": "noodle netherlands",
-      "image": "./image/noodle-5.jpg"
+      "image": "./image/noodle-5.jpg",
+      "amount": 1,
+      "disabled": false
     },
     {
       "id": 6,
-      "price": 125.0,
+      "price": 25.0,
       "title": "noodle russia",
-      "image": "./image/noodle-6.jpg"
+      "image": "./image/noodle-6.jpg",
+      "amount": 1,
+      "disabled": false
     }
   ]
 }

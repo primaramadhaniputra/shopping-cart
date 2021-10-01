@@ -7,7 +7,7 @@ const cartCloseBtn = document.querySelector(".close-btn");
 const cartContainer = document.querySelector(".cart-item-container");
 const totalPrice = document.querySelector(".total-price");
 const clearBtn = document.querySelector(".clear-all");
-console.log(clearBtn);
+const cartValue = document.querySelector(".cart-text");
 // end html query
 
 // class
@@ -30,9 +30,9 @@ class UiProducts {
         <img src=${data.image} alt="indomie" />
       </div>
       <div class="product-title">${data.title}</div>
-      <div class="product-price">rp ${data.price}</div>
+      <div class="product-price">$ ${data.price}</div>
       <div class="button-container">
-        <button class="add-in-cart">add in cart</button>
+        <button class="add-in-cart" ${data.disabled == true ? 'disabled ="true"' : ""}>${data.disabled == true ? "in cart" : "add in cart"}</button>
       </div>      
   </div>`;
     });
@@ -41,8 +41,9 @@ class UiProducts {
   static cartItem(item) {
     let product = ``;
     let total = 0;
+    let cart = 0;
     item.forEach((res) => {
-      product += `<div class="cart-item">
+      product += `<div class="cart-item" data-cartId=${res.id}>
       <div class="image-list">
         <img src=${res.image} width="150px" alt="">
       </div>
@@ -55,12 +56,14 @@ class UiProducts {
       </div>
       <div div class="btn-add-item">
         <i class="fas fa-angle-up up-arrow"></i>
-        <p class="sum">1</p>
+        <p class="sum">${res.amount}</p>
         <i class="fas fa-angle-down down-arrow"></i>
       </div>
     </div>`;
       total += res.price;
+      cart += res.amount;
     });
+    cartValue.innerHTML = cart;
     totalPrice.innerHTML = total;
     cartContainer.innerHTML = product;
   }
@@ -109,7 +112,6 @@ productContainer.addEventListener("click", function (e) {
     localStorageProducts.setCartProducts(cartProduct);
   }
 });
-
 // js for remove button in cart product
 cartContainer.addEventListener("click", (e) => {
   if (e.target.textContent == "remove") {
@@ -121,6 +123,47 @@ cartContainer.addEventListener("click", (e) => {
     localStorageProducts.setCartProducts(newCartProducts);
     UiProducts.cartItem(newCartProducts);
     cartProduct = [...newCartProducts];
+  }
+  // js for cart value
+
+  if (e.target.classList.contains("up-arrow")) {
+    // first try to get product
+    let cartProducts = JSON.parse(localStorageProducts.getCartProducts());
+    // then check for the click
+    let cartId = e.target.parentElement.parentElement.dataset.cartid;
+    // check for init price
+
+    // and change value from cart products
+    cartProducts.forEach((product) => {
+      if (product.id == cartId) {
+        product.amount += 1;
+        product.price += 25;
+        UiProducts.cartItem(cartProducts);
+        localStorageProducts.setCartProducts(cartProducts);
+        cartProduct = [...cartProducts];
+      }
+    });
+  }
+  if (e.target.classList.contains("down-arrow")) {
+    // first try to get product
+    let cartProducts = JSON.parse(localStorageProducts.getCartProducts());
+    // then check for the click
+    let cartId = e.target.parentElement.parentElement.dataset.cartid;
+    // check for init price
+
+    // and change value from cart products
+    cartProducts.forEach((product) => {
+      if (product.id == cartId) {
+        if (product.amount < 2) {
+          return;
+        }
+        product.amount -= 1;
+        product.price -= 25;
+        UiProducts.cartItem(cartProducts);
+        localStorageProducts.setCartProducts(cartProducts);
+        cartProduct = [...cartProducts];
+      }
+    });
   }
 });
 
